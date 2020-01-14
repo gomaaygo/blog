@@ -25,7 +25,7 @@ SECRET_KEY = '55btkmblv+m6g4drx1$lu1rfnx9@tgbbnx^2jku&8=d4xtmuq1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.meusite.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
