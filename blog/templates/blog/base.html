@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="header">
+			<center><h1 class="title-header">Blog Django Girls!</h1></center>
+		</div>
+		<a href="{% url 'post_new' %}"> + Novo Post</a>
+		{% block dinamico %}.
+		{% endblock %}
+	</body>
+</html>

@@ -2,6 +2,10 @@ h1 {
 	color: black;
 }
 
+a {
+	text-decoration:none;
+}
+
 .header {
 	background-color: #800040;
 	padding-bottom: 10px;
@@ -10,6 +14,7 @@ h1 {
 }
 
 .container {
+	padding-top: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 25px;

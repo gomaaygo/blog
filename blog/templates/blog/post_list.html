@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html>
-	<head>
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
-		<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
-	</head>
-	<body>
-		<div class="header">
-			<center><h1 class="title-header">Blog Django Girls!</h1></center>
-		</div>
-		{% for post in posts %}
-			<div class="container post">
+{% extends 'blog/base.html' %}
+
+{% block dinamico %}
+
+	{% for post in posts %}
+		<div class="container post">
+			<a href="{% url 'post_detail' pk=post.pk %}">
 				<h1 class="title-post">{{ post.title }}</h1>
-				<p class="date">Publicado em: {{ post.publish_date }}</p>
-				<p class="text">{{ post.text|linebreaksbr }}</p>
-			</div>
-		{% endfor %}
-	</body>
-</html>
+			</a>
+			<p class="date">Publicado em: {{ post.publish_date }}</p>
+			<p class="text">{{ post.text|linebreaksbr }}</p>
+		</div>
+	{% endfor %}
+
+{% endblock %}
