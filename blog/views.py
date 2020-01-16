@@ -49,3 +49,8 @@ def publish(request, pk):
 
 	return redirect('post_detail', pk=post.pk)
 
+def post_remove(request, pk):
+	post = get_object_or_404(Post, pk=pk)
+	post.delete()
+
+	return redirect('post_list')

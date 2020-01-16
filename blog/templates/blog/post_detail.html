@@ -10,7 +10,8 @@
 		{% endif %}
 		<p class="text">{{ post.text|linebreaksbr }}</p>
 		{% if user.is_authenticated %}
-			<a href="{% url 'post_edit' pk=post.pk %}">Editar Post</a>
+			<a href="{% url 'post_edit' pk=post.pk %}">Editar Post</a>			
+			<a onclick="return confirm('Você deseja apagar esse post?')" href="{% url 'post_remove' pk=post.pk %}">Excluir</a>
 			<br>
 			{% if post.publish_date == None %}
 				<a href="{% url 'publish' pk=post.pk %}">Publicar</a>
