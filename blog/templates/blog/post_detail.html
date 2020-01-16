@@ -2,12 +2,13 @@
 
 {% block dinamico %}
 	<div class="container post">
+		<h1 class="title-post">{{ post.title }}</h1>
 		{% if post.publish_date %}
 			<div class="date">
 				{{ post.publish_date }}
 			</div>
 		{% endif %}
-		<h1 class="title-post">{{ post.title }}</h1>
 		<p class="text">{{ post.text|linebreaksbr }}</p>
+		<a href="{% url 'post_edit' pk=post.pk %}">Editar Post</a>
 	</div>
 {% endblock %}

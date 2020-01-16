@@ -9,9 +9,24 @@
 	<body>
 		<div class="header">
 			<center><h1 class="title-header">Blog Django Girls!</h1></center>
+			<ul>
+				<li>
+					<a class="menu" href="{% url 'post_list' %}">Home</a>
+				</li>
+			</ul>
 		</div>
-		<a href="{% url 'post_new' %}"> + Novo Post</a>
+		{% if user.is_authenticated %}
+			<a href="{% url 'post_new' %}"> + Novo Post</a>
+		{% endif %}
+
 		{% block dinamico %}.
 		{% endblock %}
+
+		<footer class="rodape">
+			<center>
+				<h5>2020 - Programação para Web II</h5>
+			</center>
+		</footer>
+
 	</body>
 </html>
