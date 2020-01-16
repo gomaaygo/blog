@@ -3,7 +3,7 @@
 {% block dinamico %}
 	{% if user.is_authenticated %}
 		<h1>Nova Postagem</h1>
-		<form method="POST" class="post-form">
+		<form method="POST" class="post-form" enctype="multipart/form-data">
 			{% csrf_token %}
 			{{ form.as_p}}
 			<button type="submit">Adicionar Post</button>
