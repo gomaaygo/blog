@@ -1,15 +1,32 @@
 {% extends 'blog/base.html' %}
 
 {% block dinamico %}
-
-	{% for post in posts %}
-		<div class="container post">
-			<a href="{% url 'post_detail' pk=post.pk %}">
-				<h1 class="title-post">{{ post.title }}</h1>
-			</a>
-			<p class="date">Publicado em: {{ post.publish_date }}</p>
-			<p class="text">{{ post.text|linebreaksbr }}</p>
-		</div>
-	{% endfor %}
+	{% if user.is_authenticated %}	
+			{% for post in posts %}
+				<div class="container post">
+					<a href="{% url 'post_detail' pk=post.pk %}">
+						<h1 class="title-post">{{ post.title }}</h1>
+					</a>
+					{% if post.publish_date %}
+						<p class="date">Publicado em: {{ post.publish_date }}</p>
+					{% else %}
+						<p class="date">Pendente</p>
+					{% endif %}
+					<p class="text">{{ post.text|linebreaksbr }}</p>
+				</div>
+			{% endfor %}
+	{% else %}
+		{% for post in posts %}
+			{% if post.publish_date %}
+				<div class="container post">
+					<a href="{% url 'post_detail' pk=post.pk %}">
+						<h1 class="title-post">{{ post.title }}</h1>
+					</a>
+					<p class="date">Publicado em: {{ post.publish_date }}</p>
+					<p class="text">{{ post.text|linebreaksbr }}</p>
+				</div>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
 
 {% endblock %}
