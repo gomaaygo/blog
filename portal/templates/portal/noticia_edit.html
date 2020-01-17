@@ -1,0 +1,15 @@
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	{% if user.is_authenticated %}
+		<h1>Adicionar Notícia</h1>
+		<form method="POST" class="post-form" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ form.as_p}}
+			<button type="submit">Adicionar Notícia</button>
+		</form>
+	{% else %}
+		<center><h1>Acesso Restrito</h1></center>
+	{% endif %}
+{% endblock %}
+

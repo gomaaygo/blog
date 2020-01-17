@@ -1,0 +1,27 @@
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	{% if user.is_authenticated %}
+		{% for area in areas %}
+			<div class="container post">
+				<a href="{% url 'detalhes_area' pk=area.pk %}">
+					<h1 class="title-post">{{ area.descricao }}</h1>
+				</a>
+				<p class="date">Cor: {{ area.cor }}</p>
+				<p class="date">Status: {{ area.status }}</p>
+			</div>
+		{% endfor %}
+	{% else %}
+		{% for area in areas %}
+			{% if area.status != False and area.status != None  %}
+				<div class="container post">
+					<a href="{% url 'detalhes_area' pk=area.pk %}">
+						<h1 class="title-post">{{ area.descricao }}</h1>
+					</a>
+					<p class="date">Cor: {{ area.cor }}</p>
+					<p class="date">Status: {{ area.status }}</p>
+				</div>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+{% endblock %}

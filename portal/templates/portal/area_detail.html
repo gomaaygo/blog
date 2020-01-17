@@ -1,0 +1,25 @@
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	<div class="container post">
+		<a href="{% url 'detalhes_area' pk=area.pk %}">
+			<h1 class="title-post">{{ area.descricao }}</h1>
+		</a>
+		<p class="date">Cor: {{ area.cor }}</p>
+		{% if area.status == False %}
+			<p class="date">Status: Desativado</p>
+		{% else %}
+			<p class="date">Status: Ativo</p>
+		{% endif %}
+
+		{% if area.status == False %}
+			<a href="{% url 'ativar_area' pk=area.pk %}">Ativar</a>
+		{% else %}
+			<a href="{% url 'desativar_area' pk=area.pk %}">Desativar</a>
+		{% endif %}
+		<a href="{% url 'alterar_area' pk=area.pk %}">Editar</a>
+		<a href="{% url 'excluir_area' pk=area.pk %}">Excluir</a>
+	</div>
+{% endblock %}
+
+

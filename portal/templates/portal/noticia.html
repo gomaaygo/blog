@@ -1,0 +1,27 @@
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+
+	{% if user.is_authenticated %}
+		{% for noticia in noticias %}
+			<a href="{% url 'adicionar_noticia' %}">Adicionar Notícia</a>
+			<div class="container post">
+				<a href="{% url 'detalhes_noticia' pk=noticia.pk %}">
+					<h1 class="title-post">{{ noticia.titulo }}</h1>
+				</a>
+				<p class="date">{{ noticia.texto }}</p>
+				{% if noticia.foto %}
+					<img src="{{ noticia.foto.url }}">
+				{% endif %}
+				<p class="date">{{ noticia.autor }}</p>
+				<p class="date">{{ noticia.area }}</p>
+				<p class="date">{{ noticia.data_de_criacao }}</p>
+				<p class="date">{{ noticia.data_de_publicacao }}</p>
+			</div>
+		{% endfor %}
+	{% else %}
+		<center><h1>Acesso Restrito</h1></center>
+	{% endif %}
+
+{% endblock %}
+

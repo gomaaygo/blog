@@ -1,0 +1,49 @@
+h1 {
+	color: black;
+}
+
+a {
+	text-decoration:none;
+}
+
+.header {
+	background-color: #800040;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-family: 'Julius Sans One', sans-serif;
+	color: #e6e6e6;
+}
+
+.container {
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 25px;
+}
+
+.title-header {
+	color: #e6e6e6;
+}
+
+.post {
+	background-color: #b3b3b3;
+	margin-top: 10px;
+}
+
+.title-post {
+	color: #800040;
+}
+
+.date {
+	color: blue;
+	font-size: 15px;
+	text-align: right;
+}
+
+.text {
+	text-align: left;
+}
+
+.rodape {
+	color: blue;
+}

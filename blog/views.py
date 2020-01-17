@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import PostForm
 
-
+# VIEW ÁREA
 def post_list(request):
 	posts = Post.objects.all()
 	return render(request, 'blog/post_list.html', {'posts': posts})
@@ -55,3 +55,6 @@ def post_remove(request, pk):
 	post.delete()
 
 	return redirect('post_list')
+#-------------------------------------------------------------------------
+#VIEW NOTÍCIA
+
